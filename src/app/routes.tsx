@@ -46,7 +46,7 @@ export const router = createBrowserRouter(
     },
   ],
   {
-    basename: '/rekind/',
+    basename: '/Re-kind/',
   }
 );
 

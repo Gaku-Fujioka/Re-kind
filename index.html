@@ -28,8 +28,8 @@
         window.addEventListener('load', () => {
           // ベースパスを動的に取得（現在のパスから推測）
           const currentPath = window.location.pathname;
-          const basePath = currentPath.includes('/rekind/') 
-            ? '/rekind/' 
+          const basePath = currentPath.includes('/Re-kind/') 
+            ? '/Re-kind/' 
             : currentPath.endsWith('/') 
               ? currentPath 
               : currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
