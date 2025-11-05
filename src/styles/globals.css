@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-size-base: 1rem;
+  }
+
+  * {
+    @apply border-gray-200;
+  }
+
+  body {
+    @apply bg-background text-neutral font-sans antialiased;
+    @apply min-h-screen;
+    font-size: var(--font-size-base);
+  }
+  
+  .dark body {
+    @apply text-gray-100;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  /* ダークモード */
+  .dark body {
+    background-color: #1A1A1A;
+    color: #E0E0E0;
+  }
+
+  .dark {
+    color-scheme: dark;
+  }
+
+  /* ダークモードでのカードスタイル */
+  .dark .bg-white {
+    background-color: #2D2D2D;
+  }
+
+  .dark .text-gray-600 {
+    color: #B0B0B0;
+  }
+
+  .dark .border-gray-200 {
+    border-color: #404040;
+  }
+
+  /* フォーカス可視化 */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2;
+  }
+
+  /* スクリーンリーダー用 */
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden;
+    @apply whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  /* prefers-reduced-motion 対応 */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* カスタムコンポーネントスタイル */
+}
+
+@layer utilities {
+  /* カスタムユーティリティ */
+}
+
+/* 花びらアニメーション */
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-petal-fall {
+  animation: petal-fall linear infinite;
+}
+
+/* prefers-reduced-motion の場合はアニメーションを無効化 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-petal-fall {
+    animation: none;
+  }
+}
+

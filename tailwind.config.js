@@ -1,0 +1,48 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: '#FFB347', // ビタミンオレンジ
+        secondary: '#C5E1A5', // ライトグリーン
+        accent: '#FDF1C2', // ホワイトゴールド
+        neutral: {
+          DEFAULT: '#2F3E46', // 文字/濃色
+          50: '#F8F9FA',
+          100: '#E9ECEF',
+          200: '#DEE2E6',
+          300: '#CED4DA',
+          400: '#ADB5BD',
+          500: '#6C757D',
+          600: '#495057',
+          700: '#343A40',
+          800: '#212529',
+          900: '#2F3E46',
+        },
+        background: '#FAF5E9',
+      },
+      fontFamily: {
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'Segoe UI',
+          'Roboto',
+          'Oxygen',
+          'Ubuntu',
+          'Cantarell',
+          'Fira Sans',
+          'Droid Sans',
+          'Helvetica Neue',
+          'sans-serif',
+        ],
+      },
+      gridTemplateColumns: {
+        '15': 'repeat(15, minmax(0, 1fr))',
+      },
+    },
+  },
+  plugins: [],
+};
+

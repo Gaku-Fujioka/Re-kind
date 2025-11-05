@@ -1,0 +1,13 @@
+{
+  "name": "Re:kind — 優しさを再点火するSNS",
+  "short_name": "Re:kind",
+  "description": "優しさを再点火するSNSアプリケーション",
+  "start_url": "/rekind/",
+  "scope": "/rekind/",
+  "display": "standalone",
+  "background_color": "#FAF5E9",
+  "theme_color": "#FFB347",
+  "orientation": "portrait-primary",
+  "categories": ["social", "lifestyle"]
+}
+

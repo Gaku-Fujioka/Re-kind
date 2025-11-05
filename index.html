@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Re:kind — 優しさを再点火するSNS" />
+    <meta name="theme-color" content="#FFB347" />
+    <link rel="manifest" href="./manifest.json" />
+    <title>Re:kind — 優しさを再点火するSNS</title>
+    <!-- Google Analytics 4 (MVPでは未導入、必要に応じてコメントアウトを解除) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Service Worker登録（PWA）
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          // ベースパスを動的に取得（現在のパスから推測）
+          const currentPath = window.location.pathname;
+          const basePath = currentPath.includes('/rekind/') 
+            ? '/rekind/' 
+            : currentPath.endsWith('/') 
+              ? currentPath 
+              : currentPath.substring(0, currentPath.lastIndexOf('/') + 1);
+          const swPath = basePath + 'sw.js';
+          
+          navigator.serviceWorker.register(swPath)
+            .then((registration) => {
+              console.log('Service Worker registered:', registration);
+            })
+            .catch((error) => {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
+
